@@ -38,9 +38,11 @@ app.put("/user", async (req, res) => {
 	//User.updateOne({where}, {set});
 	let u_data = await User.updateOne({"_id": req.body._id}, {
 		"$set": {
-			"name" : req.body.name,
-			"age" : req.body.age,
-			"city" : req.body.city
+			"client_ame" : req.body.client_name,
+			"store" : req.body.store,
+			"desktop_laptop" : req.body.desktop_laptop,
+			"price": req.body.price,
+			"model_number": req.body.model_number
 		}
 	});
 	

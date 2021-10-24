@@ -4,9 +4,11 @@ function loadData(records = []) {
 	var table_data = "";
 	for(let i=0; i<records.length; i++) {
 		table_data += `<tr>`;
-		table_data += `<td>${records[i].name}</td>`;
-		table_data += `<td>${records[i].age}</td>`;
-		table_data += `<td>${records[i].city}</td>`;
+		table_data += `<td>${records[i].client_name}</td>`;
+		table_data += `<td>${records[i].store}</td>`;
+		table_data += `<td>${records[i].desktop_laptop}</td>`;
+		table_data += `<td>${records[i].price}</td>`;
+		table_data += `<td>${records[i].model_number}</td>`;
 		table_data += `<td>`;
 		table_data += `<a href="edit.html?id=${records[i]._id}"><button class="btn btn-primary">Edit</button></a>`;
 		table_data += '&nbsp;&nbsp;';
@@ -35,19 +37,23 @@ function getDataById(id) {
 	
 		console.log(data);
 		document.getElementById("id").value = data._id;
-		document.getElementById("name").value = data.name;
-		document.getElementById("age").value = data.age;
-		document.getElementById("city").value = data.city;
+		document.getElementById("client_name").value = data.client_name;
+		document.getElementById("store").value = data.store;
+		document.getElementById("desktop_laptop").value = data.desktop_laptop;
+		document.getElementById("price").value = data.price;
+		document.getElementById("model_number").value = data.model_number;
 	})
 }
 
 
 function postData() {
-	var name = document.getElementById("name").value;
-	var age = document.getElementById("age").value;
-	var city = document.getElementById("city").value;
+	var client_name = document.getElementById("name").value;
+	var store = document.getElementById("age").value;
+	var desktop_laptop = document.getElementById("desktop_laptop").value;
+	var price = document.getElementById("price").value;
+	var model_number= document.getElementById("model_number").value;
 	
-	data = {name: name, age: age, city: city};
+	data = {client_name: client_name, store: store, desktop_laptop: desktop_laptop, price: price, model_number:model_number};
 	
 	fetch(api_url, {
 		method: "POST",
@@ -68,11 +74,13 @@ function postData() {
 function putData() {
 	
 	var _id = document.getElementById("id").value;
-	var name = document.getElementById("name").value;
-	var age = document.getElementById("age").value;
-	var city = document.getElementById("city").value;
+	var client_name = document.getElementById("client_name").value;
+	var store = document.getElementById("store").value;
+	var desktop_laptop = document.getElementById("desktop_laptop").value;
+	var price = document.getElementById("price").value;
+	var model_number = document.getElementById("model_number").value;
 	
-	data = {_id: _id, name: name, age: age, city: city};
+	data = {_id: _id, client_name: client_name, store: store,desktop_laptop: desktop_laptop,price: price, model_number: model_number};
 	
 	fetch(api_url, {
 		method: "PUT",
