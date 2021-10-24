@@ -1,5 +1,5 @@
-const api_url = "https://vaishnavi-computer-database.herokuapp.com/user"
-
+//const api_url = "https://vaishnavi-computer-database.herokuapp.com/user"
+const api_url = "https://localhost:8080/user"
 function loadData(records = []) {
 	var table_data = "";
 	for(let i=0; i<records.length; i++) {
@@ -46,15 +46,16 @@ function getDataById(id) {
 }
 
 
-function postData() {
-	var client_name = document.getElementById("name").value;
-	var store = document.getElementById("age").value;
+function postData() 
+	{alert("function calls");
+	var client_name = document.getElementById("client_name").value;
+	var store = document.getElementById("store").value;
 	var desktop_laptop = document.getElementById("desktop_laptop").value;
 	var price = document.getElementById("price").value;
 	var model_number= document.getElementById("model_number").value;
 	
 	data = {client_name: client_name, store: store, desktop_laptop: desktop_laptop, price: price, model_number:model_number};
-	
+	console.log(data);
 	fetch(api_url, {
 		method: "POST",
 		headers: {
