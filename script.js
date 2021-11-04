@@ -35,6 +35,7 @@ function getDataById(id) {
 	.then((response) => response.json())
 	.then((data) => { 
 	
+		
 		console.log(data);
 		document.getElementById("id").value = data._id;
 		document.getElementById("client_name").value = data.client_name;
